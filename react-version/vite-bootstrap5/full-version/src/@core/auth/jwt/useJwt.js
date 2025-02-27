@@ -1,11 +1,7 @@
-// ** JWT Service Import
-import JwtService from './jwtService'
+;  // Ensure this matches the actual filename
+import jwtDefaultConfig from './jwtDefaultConfig';
+import JwtService from '/src/auth/jwt/jwtService';
 
-// ** Export Service as useJwt
-export default function useJwt(jwtOverrideConfig) {
-  const jwt = new JwtService(jwtOverrideConfig)
+const useJwt = new JwtService(jwtDefaultConfig);
 
-  return {
-    jwt
-  }
-}
+export default useJwt;

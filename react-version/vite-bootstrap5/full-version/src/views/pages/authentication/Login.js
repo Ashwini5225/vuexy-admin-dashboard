@@ -101,7 +101,7 @@ const Login = () => {
         password: data.password,
       });
   
-      console.log("API Response:", res);
+      console.log("API Response:", res);  // 🔴 Add this log to debug
   
       if (!res || typeof res !== "object") {
         throw new Error("Invalid API response");

@@ -92,9 +92,20 @@ export default class JwtService {
     localStorage.setItem(this.jwtConfig.storageRefreshTokenKeyName, value)
   }
 
-  login(...args) {
-    return axios.post(this.jwtConfig.loginEndpoint, ...args)
+  login(userData) {
+    console.log("Sending login request with:", userData);
+    return axios.post(this.jwtConfig.loginEndpoint, userData)
+      .then(response => {
+        console.log("Login Response:", response);
+        return response;
+      })
+      .catch(error => {
+        console.error("Login API error:", error);
+        throw error;
+      });
   }
+  
+  
 
   register(...args) {
     return axios.post(this.jwtConfig.registerEndpoint, ...args)
